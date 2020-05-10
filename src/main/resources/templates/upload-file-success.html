@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Couples</title>
+</head>
+<body>
+<h2 style="text-align:center">A couple of employees who have worked in a team for the longest time</h2>
+<table class="table">
+    <tbody>
+    <th>Employee ID #1</th>
+    <th>Employee ID #2</th>
+    <th>Project ID</th>
+    <th>Days worked</th>
+    <tr th:if="${employeeCouples.isEmpty()}">
+        <td colspan="2"> No Couples Available </td>
+    </tr>
+    <tr th:each="employeeCouple : ${employeeCouples}">
+
+        <td><span th:text="${employeeCouple.getFirstEmployeeId()}">  Employee ID #1 </span></td>
+        <td><span th:text="${employeeCouple.getSecondEmployeeId()}">  Employee ID #2 </span></td>
+        <td><span th:text="${employeeCouple.getProjectId()}">  Project ID </span></td>
+        <td><span th:text="${employeeCouple.getDaysWorked()}">  Days worked  </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
